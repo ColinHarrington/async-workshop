@@ -6,6 +6,15 @@ class OrderController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	def longWait() {
+		def ctx = startAsync()
+		ctx.start {
+			sleep(60 * 1000)
+			render(text: "That was too long")
+			ctx.complete()
+		}
+	}
+
     def index() {
         redirect(action: "list", params: params)
     }
