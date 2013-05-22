@@ -52,7 +52,7 @@
     </listener>
 
     <listener>
-        <listener-class>async.ActiveSessionCounterService</listener-class>
+        <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
     </listener>
 
     <!-- Grails dispatcher servlet -->

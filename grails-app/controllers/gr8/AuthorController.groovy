@@ -3,6 +3,7 @@ package gr8
 import org.springframework.dao.DataIntegrityViolationException
 
 class AuthorController {
+	def grailsApplication
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -12,6 +13,9 @@ class AuthorController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+
+	    grailsApplication.mainContext.publishEvent(new AuthorsListedEvent(this))
+
         [authorInstanceList: Author.list(params), authorInstanceTotal: Author.count()]
     }
 

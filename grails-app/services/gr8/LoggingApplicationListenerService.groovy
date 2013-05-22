@@ -5,10 +5,10 @@ import org.springframework.context.ApplicationListener
 
 class LoggingApplicationListenerService implements ApplicationListener {
 
-    boolean transactional = false
+	boolean transactional = false
 
 	@Override
 	void onApplicationEvent(ApplicationEvent e) {
-		println ":::::::Event:::::::${e.dump()}"
+		println " :::::::Event:::::::${e.dump()}"
 	}
 }
