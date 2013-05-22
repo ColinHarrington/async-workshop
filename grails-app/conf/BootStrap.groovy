@@ -6,7 +6,7 @@ import java.lang.Package
 class BootStrap {
 
 	def init = { servletContext ->
-		createBooks()
+		//createBooks()
 	}
 	def destroy = {
 	}

@@ -1,4 +1,4 @@
-grails.servlet.version = "3.0" // Change depending on target container compliance (2.5 or 3.0)
+grails.servlet.version = "2.5" // Change depending on target container compliance (2.5 or 3.0)
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
@@ -37,7 +37,7 @@ grails.project.dependency.resolution = {
 		//mavenRepo "http://repository.codehaus.org"
 		//mavenRepo "http://download.java.net/maven/2/"
 		//mavenRepo "http://repository.jboss.com/maven2/"
-		mavenRepo "https://oss.sonatype.org/content/repositories/snapshots/"
+//		mavenRepo "https://oss.sonatype.org/content/repositories/snapshots/"
 		//mavenRepo "http://repo.typesafe.com/typesafe/repo"
 	}
 
@@ -45,9 +45,6 @@ grails.project.dependency.resolution = {
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
 		// runtime 'mysql:mysql-connector-java:5.1.22'
-		compile('org.atmosphere:atmosphere-runtime:1.1.0.RC2') {
-			excludes 'slf4j-api', 'atmosphere-ping'
-		}
 	}
 
 	plugins {
@@ -65,11 +62,5 @@ grails.project.dependency.resolution = {
 		runtime ":database-migration:1.3.2"
 
 		compile ':cache:1.0.1'
-		compile ":platform-core:1.0.RC5"
-		compile (":events-push:1.0.M7") {
-			excludes 'atmosphere-runtime'
-		}
-		compile ":spring-security-core:1.2.7.3"
-		compile ":twitter-bootstrap:2.3.0"
 	}
 }
