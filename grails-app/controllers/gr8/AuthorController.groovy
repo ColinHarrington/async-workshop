@@ -11,8 +11,6 @@ class AuthorController {
     }
 
     def list(Integer max) {
-	    Map data = [ message: 'Authors Listed...']
-	    event(topic: 'globalBannerMessageUpdated', for: 'browser', data: data)
         params.max = Math.min(max ?: 10, 100)
         [authorInstanceList: Author.list(params), authorInstanceTotal: Author.count()]
     }
