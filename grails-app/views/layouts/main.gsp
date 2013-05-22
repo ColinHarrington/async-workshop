@@ -20,8 +20,12 @@
 </head>
 
 <body>
+<header>
 <div id="grailsLogo" role="banner"><a href="http://grails.org"><img
-		src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+		src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
+</div>
+	<div id="globalBannerMessage" style="display: none;"></div>
+</header>
 <g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 
