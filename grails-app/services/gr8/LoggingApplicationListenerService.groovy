@@ -9,6 +9,6 @@ class LoggingApplicationListenerService implements ApplicationListener {
 
 	@Override
 	void onApplicationEvent(ApplicationEvent e) {
-		println " :::::::Event:::::::${e.dump()}"
+//		println " :::::::Event:::::::${e.dump()}"
 	}
 }

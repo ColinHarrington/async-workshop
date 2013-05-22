@@ -45,6 +45,9 @@ grails.project.dependency.resolution = {
 		// specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
 		// runtime 'mysql:mysql-connector-java:5.1.22'
+		compile('org.atmosphere:atmosphere-runtime:1.1.0.RC2') {
+			excludes 'slf4j-api', 'atmosphere-ping'
+		}
 	}
 
 	plugins {
@@ -64,5 +67,8 @@ grails.project.dependency.resolution = {
 
 		compile ':cache:1.0.1'
 		compile ":spring-security-core:1.2.7.3"
+		compile (":events-push:1.0.M7") {
+			excludes 'atmosphere-runtime'
+		}
 	}
 }
