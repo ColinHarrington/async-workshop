@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 	<g:layoutHead/>
 	<r:layoutResources/>
-	<r:require modules="bootstrap"/>
+	%{--<r:require modules="bootstrap"/>--}%
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 	<div id="globalBannerMessage" style="display: none;"></div>
 </header>
 <g:layoutBody/>
-<div class="footer" role="contentinfo"></div>
+<div class="footer" role="contentinfo">${grails.util.Holders.applicationContext.activeSessionCounterService.activeSessions}</div>
 
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 <g:javascript library="application"/>
