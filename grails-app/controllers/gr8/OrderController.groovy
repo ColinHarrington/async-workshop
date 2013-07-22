@@ -1,7 +1,9 @@
 package gr8
 
 import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.security.access.annotation.Secured
 
+@Secured(["ROLE_ADMIN"])
 class OrderController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -12,15 +14,15 @@ class OrderController {
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        [orderInstanceList: Order.list(params), orderInstanceTotal: Order.count()]
+        [orderInstanceList: BookOrder.list(params), orderInstanceTotal: BookOrder.count()]
     }
 
     def create() {
-        [orderInstance: new Order(params)]
+        [orderInstance: new BookOrder(params)]
     }
 
     def save() {
-        def orderInstance = new Order(params)
+        def orderInstance = new BookOrder(params)
         if (!orderInstance.save(flush: true)) {
             render(view: "create", model: [orderInstance: orderInstance])
             return
@@ -31,7 +33,7 @@ class OrderController {
     }
 
     def show(Long id) {
-        def orderInstance = Order.get(id)
+        def orderInstance = BookOrder.get(id)
         if (!orderInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'order.label', default: 'Order'), id])
             redirect(action: "list")
@@ -42,7 +44,7 @@ class OrderController {
     }
 
     def edit(Long id) {
-        def orderInstance = Order.get(id)
+        def orderInstance = BookOrder.get(id)
         if (!orderInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'order.label', default: 'Order'), id])
             redirect(action: "list")
@@ -53,7 +55,7 @@ class OrderController {
     }
 
     def update(Long id, Long version) {
-        def orderInstance = Order.get(id)
+        def orderInstance = BookOrder.get(id)
         if (!orderInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'order.label', default: 'Order'), id])
             redirect(action: "list")
@@ -82,7 +84,7 @@ class OrderController {
     }
 
     def delete(Long id) {
-        def orderInstance = Order.get(id)
+        def orderInstance = BookOrder.get(id)
         if (!orderInstance) {
             flash.message = message(code: 'default.not.found.message', args: [message(code: 'order.label', default: 'Order'), id])
             redirect(action: "list")

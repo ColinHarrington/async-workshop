@@ -1,4 +1,4 @@
-<%@ page import="gr8.OrderEntry" %>
+<%@ page import="gr8.BookOrder; gr8.OrderEntry" %>
 
 
 
@@ -15,7 +15,7 @@
 		<g:message code="orderEntry.order.label" default="Order" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="order" name="order.id" from="${gr8.Order.list()}" optionKey="id" required="" value="${orderEntryInstance?.order?.id}" class="many-to-one"/>
+	<g:select id="order" name="order.id" from="${BookOrder.list()}" optionKey="id" required="" value="${orderEntryInstance?.order?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: orderEntryInstance, field: 'quantity', 'error')} required">

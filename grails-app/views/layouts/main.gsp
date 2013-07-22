@@ -23,7 +23,11 @@
 <header>
 <div id="grailsLogo" role="banner"><a href="http://grails.org"><img
 		src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a>
+	<g:link controller="cart" action="list" class="cartLink">
+		<g:img dir="images" file="cart48.png"/>
+	</g:link>
 </div>
+
 	<div id="globalBannerMessage" style="display: none;"></div>
 </header>
 <g:layoutBody/>

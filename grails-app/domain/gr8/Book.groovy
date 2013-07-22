@@ -6,9 +6,9 @@ class Book {
 	List<Author> authors
 	Integer qty = 0
 
-	static hasMany = [authors:Author]
+	static hasMany = [authors: Author]
 
 
-    static constraints = {
-    }
+	static constraints = {
+	}
 }

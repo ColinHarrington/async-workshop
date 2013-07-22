@@ -1,12 +1,10 @@
 import gr8.Author
 import gr8.Book
 
-import java.lang.Package
-
 class BootStrap {
 
 	def init = { servletContext ->
-		//createBooks()
+		createBooks()
 	}
 	def destroy = {
 	}

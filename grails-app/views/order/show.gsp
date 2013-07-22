@@ -1,5 +1,5 @@
 
-<%@ page import="gr8.Order" %>
+<%@ page import="gr8.BookOrder" %>
 <!DOCTYPE html>
 <html>
 	<head>

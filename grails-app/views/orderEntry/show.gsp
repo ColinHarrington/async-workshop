@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="book-label" class="property-label"><g:message code="orderEntry.book.label" default="Book" /></span>
 					
-						<span class="property-value" aria-labelledby="book-label"><g:link controller="book" action="show" id="${orderEntryInstance?.book?.id}">${orderEntryInstance?.book?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="book-label"><g:link controller="book" action="show" id="${orderEntryInstance?.book?.id}">${orderEntryInstance?.book?.title?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

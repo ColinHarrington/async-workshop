@@ -94,11 +94,19 @@ img {
 	margin: 1em;
 }
 
+.cartLink {
+    float: right;
+}
+.cartLink:hover {
+    background-color: #cccccc;
+}
+
 .content {
+    min-height: 300px;
 }
 
 .content h1 {
-	border-bottom: 1px solid #CCCCCC;
+	border-bottom: 1px solid #aaa;
 	margin: 0.8em 1em 0.3em;
 	padding: 0 0.25em;
 }
@@ -593,4 +601,13 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+.cart-list {
+    background-image: url('../images/cart.png');
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+
+.cart-list h2 {
+    text-align: center;
 }
