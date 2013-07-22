@@ -20,6 +20,20 @@ class OrderService {
 		}
 
 		order.save()
+
+		runAsync {
+			sleep(10 * 1000)
+			approveOrder(order)
+		}
+
 		return order
+	}
+
+	void approveOrder(BookOrder order) {
+		order.approved = true
+		order.save(flush:true)
+
+		Map data = [ message: "Order #${order.id} Approved..."]
+		event(topic: 'globalBannerMessageUpdated', for: 'browser', data: data)
 	}
 }

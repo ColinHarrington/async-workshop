@@ -14,8 +14,8 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
-	<g:layoutHead/>
-	<r:layoutResources/>
+
+	<r:require module="jquery"/>
 	<r:require modules="bootstrap"/>
 
 	<r:require module="grailsEvents"/>
@@ -26,6 +26,9 @@
 				}
 		);
 	</r:script>
+
+	<g:layoutHead/>
+	<r:layoutResources/>
 </head>
 
 <body>
@@ -37,7 +40,7 @@
 	</g:link>
 </div>
 
-	<div id="globalBannerMessage" style="display: none;"></div>
+	<div id="globalBannerMessage" class="alert alert-info" style="display: none;"></div>
 </header>
 <g:layoutBody/>
 <div class="footer" role="contentinfo">${grails.util.Holders.applicationContext.activeSessionCounterService.activeSessions}</div>
