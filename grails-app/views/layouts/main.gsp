@@ -16,7 +16,16 @@
 	<link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
 	<g:layoutHead/>
 	<r:layoutResources/>
-	%{--<r:require modules="bootstrap"/>--}%
+	<r:require modules="bootstrap"/>
+
+	<r:require module="grailsEvents"/>
+	<r:script>
+		var grailsEvents = new grails.Events("http://localhost:8080/async/");
+		grailsEvents.on('globalBannerMessageUpdated', function(data) {
+					$("#globalBannerMessage").html(data.message).show();
+				}
+		);
+	</r:script>
 </head>
 
 <body>
