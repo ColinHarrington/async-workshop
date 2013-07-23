@@ -6,6 +6,9 @@ class BookOrderController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+//	def summary() {
+//		render
+//	}
     def index() {
         redirect(action: "list", params: params)
     }

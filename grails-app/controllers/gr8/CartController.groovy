@@ -47,4 +47,8 @@ class CartController {
 		flash.message = "Cart was emptied"
 		redirect( action: 'list')
 	}
+
+	def json() {
+		render(view: 'list', model: [foo:'bar'])
+	}
 }

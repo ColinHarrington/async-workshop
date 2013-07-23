@@ -11,6 +11,36 @@ class AuthorController {
         redirect(action: "list", params: params)
     }
 
+	def books(Long id) {
+		def author = Author.get(id)
+
+		def books = Book.list().findAll{book -> book.authors.contains(author)}
+
+		List titles = books.collect { it.title }
+
+		render(contentType: "text/json") {
+			titles = titles
+		}
+
+	}
+
+	def books2(Long id) {
+		def author = Author.get(id)
+
+		def results = Book.list().findAll{book -> book.authors.contains(author)}
+
+
+		render(contentType: "text/json") {
+			name = author.name
+			books = array {
+				for (b in results) {
+					book title: b.title
+				}
+			}
+		}
+
+	}
+
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
 

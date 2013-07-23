@@ -1,5 +1,6 @@
 package gr8
 
+import grails.converters.JSON
 import org.springframework.dao.DataIntegrityViolationException
 
 class BookController {
@@ -10,7 +11,76 @@ class BookController {
         redirect(action: "list", params: params)
     }
 
-    def list(Integer max) {
+
+
+
+
+	def appStatus2() {
+		render(contentType: "text/json", text: "{\"foo\":\"bar\"}")
+	}
+
+	def appStatus() {
+		render(contentType: "text/json") {
+			hello = "world"
+		}
+	}
+
+	def bookList() {
+		def results = Book.list()
+
+		render(contentType: "text/json") {
+			books = array {
+				for (b in results) {
+					book title: b.title
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+	def bookList2() {
+		render Book.list() as JSON
+	}
+
+	def bookList3() {
+		render Book.list().encodeAsJSON()
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         [bookInstanceList: Book.list(params), bookInstanceTotal: Book.count()]
     }
@@ -99,4 +169,6 @@ class BookController {
             redirect(action: "show", id: id)
         }
     }
+
+
 }
