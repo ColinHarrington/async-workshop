@@ -38,48 +38,177 @@
 			<div class="slides">
 
 				<section>
-					<h1>JSON View Layer</h1>
-					<h3>Another take on JSON + Grails</h3>
-					<p>
-						<small>Created by <a href="http://colinharrington.net">Colin Harrington</a> / <a href="http://twitter.com/hakimel">@ColinHarrington</a></small>
-					</p>
+					<section>
+						<h1>JSON View Layer</h1>
+						<h3>Another take on JSON + Grails</h3>
+						<p>
+							<small>Created by <a href="http://colinharrington.net">Colin Harrington</a> / <a href="http://twitter.com/ColinHarrington">@ColinHarrington</a></small>
+						</p>
+					</section>
+					<section>
+						<h2>whoami</h2>
+						<ul>
+							<li>Colin Harrington</li>
+							<li>Principal Consultant - ObjectPartners</li>
+							<li>colin.harrington@objectpartners.com</li>
+							<li><a href="http://twitter.com/ColinHarrington">@ColinHarrington</a></small></li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					<h2>New World</h2>
-					<p>
-						Post Desktop devices. <br/>
-						Various Types of network connections <br/>
-						{ bandwidth, latency, gigabit, mobile, etc.}
-					</p>
+					<section>
+						<h2>New World</h2>
+						<p>
+							Post Desktop devices. <br/>
+							Various Types of network connections <br/>
+							{ bandwidth, latency, gigabit, mobile, etc.}
+						</p>
+					</section>
+					<section style="top: -252px; display: block;" class="present">
+						<h2>New device classes</h2>
+						<p>
+							{ Laptop, Tablet, Mobile, Desktop }
+						</p>
+						<a href="#" class="image navigate-down enabled">
+							<img width="530" height="298" src="img/mobile-phone-tablet-laptop-desktop.jpg" alt="Different Devices">
+							<!-- http://mobile.opensitebuilder.com/sites/mobile.opensitebuilder.com/files/mobile-phone-tablet-laptop-desktop.jpg -->
+						</a>
+					</section>
+					<section class="present">
+						<h2>Network Connectivity</h2>
+						<p>
+							{ LAN, Wifi, Cable, DSL, Fiber, LTE, 2G, 3G }
+						</p>
+						<p>
+							<img src="img/Icon-lan.png" alt="LAN">
+							<img width="192" src="img/wifi-icon.jpg" alt="Wifi Icon">
+							<img src="img/icon_international_mobile_broadband.png" alt="3g">
+							<!-- http://2.bp.blogspot.com/-ciHjCaFH1r4/UCAQSc5fxrI/AAAAAAAACaU/DWSTYvnNsSA/s640/wifi-icon.jpg -->
+							<!-- https://languages.opensuse.org/images/2/28/Icon-lan.png -->
+							<!-- http://www.trustive.com/static/images/icon_international_mobile_broadband.png -->
+						</p>
+					</section>
+					<section class="present">
+						<h2>Bandwidth</h2>
+						<p>
+							<img src="img/Pipe-Sizes.jpg" alt="Pipe sizes">
+						</p>
+					</section>
+					<section class="present">
+						<h2>Bandwidth</h2>
+						<p>
+							<img width="768" src="img/Large_diameter_pipe_installation.jpg" alt="Large Diameter Pipe">
+						</p>
+					</section>
+					<section> 
+						<li><a href="http://www.youtube.com/watch?v=f99PcP0aFNE&feature=player_detailpage#t=130">Series of tubes</a></li>
+						<li><a href="http://www.youtube.com/watch?v=_cZC67wXUTs">The internet is tubes</a></li>
+					</section>
+					<section class="present">
+						<h2>Latency</h2>
+						<p>
+							<img src="img/bandwith-vs-latency.png" alt=" Latency">
+						</p>
+					</section>
+					<section class="present">
+						<h2>Tradeoff</h2>
+						<p>
+							<ul>
+								<li>Modularity vs # of requests</li>
+								<li>Performance :: Mobile</li>
+								<li>Compress CSS/JS</li>
+								<li>Bundling, minification, etc.</li>
+							</ul>
+						</p>
+						<p>
+							<img src="img/network-timeline.png" alt="Timeline">
+						</p>
+					</section>
 				</section>
 				<section>
-					<h2>Converter / Codec</h2>
-					<ul>
-						<li>
-							grails.converters.JSON<br/>
-							<code>something as JSON</code><br/><br/>
-						</li>
-						<li>
-							encodeAsJSON<br/>
-							<code>[foo: bar].encodeAsJSON()</code>
-						</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Custom Marshaller</h2>
-					<code>JSON.registerObjectMarshaller(Class){o->}</code>
-<a href="http://compiledammit.com/2012/08/16/custom-json-marshalling-in-grails-done-right/">- Custom JSON marshalling</a>
-				</section>
-				<section>
-					<h2>JSONBuilder</h2>
-					<a href="http://grails.org/doc/latest/guide/theWebLayer.html#xmlAndJSON">Grails docs</a>
+					<section>
+						<h2>JSON</h2>
+						<ul>
+							<li>Lingua franca</li>
+							<li>Browsers</li>
+							<li>Library &amp; platform support</li>		
+							<li>node.js</li>
+							<li>etc...</li>
+						</ul>
+					</section>
+					<section>
+						<h2>JSON Library &amp; platform support</h2>
+						<ul>
+							<li>Android</li>
+							<li>iOS</li>
+							<li>Arduino</li>
+							<li>Java {Groovy, Scala, Clojure}</li>
+							<li>C++</li>
+							<li>.NET</li>
+							<li>Python</li>
+							<li>...</li>
+						</ul>
+					</section>
 				</section>
 
 				<section>
-					<h2>Direct JSONBuilder API Access</h2>
-					<code>new JSONBuilder().build { ... }.toString()</code>
-				</section>				
+					<section>
+						<h2>JSONBuilder</h2>
+						<a href="http://grails.org/doc/latest/guide/theWebLayer.html#xmlAndJSON">Grails docs</a>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<code>&lt;CODE&gt;</code>
+					</section>
+					<section>
+						<h2>Direct JSONBuilder API Access</h2>
+						<code>new JSONBuilder().build { ... }.toString()</code>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<code>&lt;CODE&gt;</code>
+					</section>
+				</section>
+
+				<section>	
+					<section>
+						<h2>Converter / Codec</h2>
+						<ul>
+							<li>
+								grails.converters.JSON<br/>
+								<code>something as JSON</code><br/><br/>
+							</li>
+							<li>
+								encodeAsJSON<br/>
+								<code>[foo: bar].encodeAsJSON()</code>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<code>&lt;CODE&gt;</code>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Custom Marshaller</h2>
+						<code>JSON.registerObjectMarshaller(Class){o->}</code>
+	<a href="http://compiledammit.com/2012/08/16/custom-json-marshalling-in-grails-done-right/">- Custom JSON marshalling</a>
+					</section>
+						
+					<section>	
+						<h2>Named configs</h2>
+						<code>JSON.createNamedConfig("name") {cfg ->
+
+						cfg.registerObjectMarshaller(Class){c-> }</code>
+						<p> 
+							Using the config <br/>
+							<code>JSON.use("name") { ... }</code>
+						</p>
+					</section>
+				</section>
 
 				<section>
 					<p>Grails is Spring with some opinions, conventions and Groovy Sugar, a plugin system and a whole lot of goodness, also GORM.</p>
@@ -110,7 +239,14 @@
 					</ul>
 				</section>
 
-				
+				<section>
+				<h2>Other tools</h2>
+					<ul>
+						<li>GSON <a href="https://code.google.com/p/google-gson/">https://code.google.com/p/google-gson/</a></li>
+						<li>Grails GSON plugin <a href="http://grails.org/plugin/gson">http://grails.org/plugin/gson</a></li>
+						<li>BSON <a href="http://bsonspec.org/">http://bsonspec.org/</a></li>
+					</ul>
+				</section>
 
 				<section>
 					<h1>Thank you</h1>
@@ -153,3 +289,4 @@
 
 	</body>
 </html>
+<!-- http://zoompf.com/blog/2011/12/i-dont-care-how-big-yours-is -->
