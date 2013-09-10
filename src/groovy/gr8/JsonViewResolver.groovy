@@ -9,12 +9,9 @@ class JsonViewResolver implements ViewResolver {
 
 	View resolveViewName(String viewName, Locale locale) {
 		println viewName
-		log.debug viewName
 
-		if (viewName?.contains(":json:")) {
-			if (viewName?.contains("cart")) {
-				return new JsonCartView(activeSessionCounterService: activeSessionCounterService)
-			}
+		if (viewName?.matches(/.*json\{(.*)\}/)){
+			return new JsonCartView(activeSessionCounterService: activeSessionCounterService)
 		} else {
 			return null
 		}

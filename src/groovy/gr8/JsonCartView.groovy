@@ -17,7 +17,7 @@ class JsonCartView implements View {
 
 	@Override
 	void render(Map<String, ?> model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		println "++++ RENDERING JSON View +++++"
 		JsonBuilder builder = new JsonBuilder()
 
 		def root = builder {
