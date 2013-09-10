@@ -1,6 +1,7 @@
 package gr8
 
 import grails.converters.JSON
+import grails.web.JSONBuilder
 import org.springframework.dao.DataIntegrityViolationException
 
 class BookController {
@@ -15,16 +16,30 @@ class BookController {
 
 
 
-	def appStatus2() {
+	/** JSON **/
+	def appStatus() {
 		render(contentType: "text/json", text: "{\"foo\":\"bar\"}")
 	}
 
-	def appStatus() {
+	/** writing the raw response **/
+	def appStatus2() {
+		response.setContentType("text/json")
+		response.writer.println('{"spring":"boot"}')
+		response.flushBuffer()
+	}
+
+
+
+
+
+	/** Builder syntax **/
+	def appStatus3() {
 		render(contentType: "text/json") {
 			hello = "world"
 		}
 	}
 
+	/** more builder **/
 	def bookList() {
 		def results = Book.list()
 
@@ -37,6 +52,28 @@ class BookController {
 		}
 	}
 
+	// Direct Builder API
+	def count() {
+		JSONBuilder builder = new JSONBuilder()
+
+		JSON json = builder.build {
+			count = Book.count()
+			foo(asdf: 'qwerty')
+			stock {
+				qty =  Book.list()*.qty.sum() ?: 0
+			}
+		}
+
+		render json
+	}
+
+	//Condensed
+	def count2() {
+		render new JSONBuilder().build {
+			count = Book.count()
+			stock(qty: Book.list()*.qty.sum() ?: 0)
+		}
+	}
 
 
 
@@ -45,8 +82,7 @@ class BookController {
 
 
 
-
-
+	/** Converters **/
 	def bookList2() {
 		render Book.list() as JSON
 	}
@@ -59,6 +95,22 @@ class BookController {
 
 
 
+	/** Object Marshalling. **/
+	def authors() {
+		render Author.list() as JSON
+	}
+
+
+	/** Object Marshalling. **/
+	def publicBooks() {
+		JSON.use('public') {
+			render Book.list() as JSON
+		}
+	}
+
+	def privateBooks() {
+		render Book.list() as JSON
+	}
 
 
 

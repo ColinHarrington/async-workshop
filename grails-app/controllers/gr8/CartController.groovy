@@ -48,7 +48,7 @@ class CartController {
 		redirect( action: 'list')
 	}
 
-	def json() {
-		render(view: 'list', model: [foo:'bar'])
+	def apiStatus() {
+		render(view: 'json{author:list}', model: [foo: 'bar'])
 	}
 }

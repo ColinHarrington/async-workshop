@@ -1,10 +1,21 @@
 import gr8.Author
 import gr8.Book
+import grails.converters.JSON
 
 class BootStrap {
 
 	def init = { servletContext ->
 		createBooks()
+
+//		JSON.registerObjectMarshaller(Author) { Author author ->
+//			[name: author.name, id: author.id]
+//		}
+//
+//		JSON.createNamedConfig("public") {cfg ->
+//			cfg.registerObjectMarshaller(Book) { Book b ->
+//				[id: b.id, title: b.title, authors: b.authors, inStock: b.qty > 0]
+//			}
+//		}
 	}
 	def destroy = {
 	}
@@ -20,10 +31,10 @@ class BootStrap {
 
 	def createBook(String title, List authors, String isbn) {
 		Book book = new Book(
-			title: title,
-			authors: createAuthors(authors),
-			isbn: isbn,
-			qty: 10 * Math.random()
+				title: title,
+				authors: createAuthors(authors),
+				isbn: isbn,
+				qty: 10 * Math.random()
 		)
 		book.save(failOnError: true)
 	}
